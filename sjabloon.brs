@@ -16,20 +16,20 @@ function sjabloon_Initialize(msgPort as object, userVariables as object, bsp as 
         userVariables: userVariables,
         bsp: bsp,
         ProcessEvent: function(event as object)
-            'Receive a plugin message
+            'Ontvang een plug-in bericht
             if type(event) = "roAssociativeArray" then
                 if type(event["EventType"]) = "roString"
                     if event["EventType"] = "SEND_PLUGIN_MESSAGE" then
                         if event["PluginName"] = "sjabloon" then
                             pluginMessage$ = event["PluginMessage"]
-                            'return true when you want no other event processors to handle this event
+                            'Geef true terug als u niet wilt dat andere gebeurtenisprocessors deze gebeurtenis afhandelen
                             return true
                         end if
                     end if
                 end if
             end if
 
-            'Send a plugin message to other plugins and BrightAuthor Objects
+            'Stuur een plug-in bericht naar andere plug-ins en BrightAuthor-objecten
             if (false)
                 pluginMessageCmd = {
                     EventType: "EVENT_PLUGIN_MESSAGE",
